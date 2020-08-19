@@ -1,0 +1,11 @@
+server:
+  port: 4445
+
+spring:
+  application:
+    name: consumer-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2222/eureka/
