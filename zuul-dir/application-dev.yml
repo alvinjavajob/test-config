@@ -1,0 +1,24 @@
+server:
+  port: 1111
+
+spring:
+  application:
+    name: zull-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2222/eureka/
+
+zuul:
+  routes:
+
+    aliase1:
+      path: /p/**
+      service-id: producer-server
+      strip-prefix: true
+
+    aliase2:
+      path: /c/**
+      service-id: consumer-server
+      strip-prefix: true
