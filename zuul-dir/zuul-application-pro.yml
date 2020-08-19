@@ -13,12 +13,12 @@ eureka:
 zuul:
   routes:
 
-    aliase1:
+    路由1:
       path: /p/**
       service-id: producer-server
       strip-prefix: true
 
-    aliase2:
+    路由2:
       path: /c/**
       service-id: consumer-server
       strip-prefix: true
