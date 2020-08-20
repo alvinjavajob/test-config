@@ -1,0 +1,15 @@
+server:
+  port: 3001
+
+spring:
+  application:
+    name: producer-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2001/eureka/
+
+logging:
+  file:
+    name: ../mylogs/${spring.application.name}.log

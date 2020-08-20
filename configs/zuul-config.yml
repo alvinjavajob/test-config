@@ -8,17 +8,21 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:2222/eureka/
+      defaultZone: http://127.0.0.1:2001/eureka/
+
+logging:
+  file:
+    name: ../mylogs/${spring.application.name}.log
 
 zuul:
   routes:
 
-    路由1:
+    route1:
       path: /p/**
       service-id: producer-server
       strip-prefix: true
 
-    路由2:
+    route2:
       path: /c/**
       service-id: consumer-server
       strip-prefix: true

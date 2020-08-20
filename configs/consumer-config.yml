@@ -1,0 +1,19 @@
+server:
+  port: 4001
+
+spring:
+  application:
+    name: consumer-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:2001/eureka/
+
+logging:
+  file:
+    name: ../mylogs/${spring.application.name}.log
+
+feign:
+  hystrix:
+    enabled: true
