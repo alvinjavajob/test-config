@@ -1,5 +1,5 @@
 server:
-  port: 1001
+  port: 3000
 
 spring:
   application:
@@ -8,7 +8,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:2000/eureka/
+      defaultZone: http://www.yihiyi.cn:2000/eureka/
 
 logging:
   file:

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: consumer-server
+    name: admin-server
 
 eureka:
   client:
@@ -13,7 +13,3 @@ eureka:
 logging:
   file:
     name: ../mylogs/${spring.application.name}.log
-
-feign:
-  hystrix:
-    enabled: true
