@@ -1,0 +1,36 @@
+#################################################### 基础公共配置 #######################################################
+server:
+  port: 2002
+
+spring:
+  application:
+    name: eureka-server2 #实例注册到eureka服务端的name （集群模式下：相同功能的微服务名字必须相同，因为负载均衡调用的时候，直接使用此名字调用所有微服务）
+
+logging:
+  file:
+    name: ../mylogs/${spring.application.name}.log
+
+#################################################### 单机eureka服务端配置 #######################################################
+eureka:
+  server:  # 配置服务端
+    enable-self-preservation: true  #开启自我保护机制 （当在15分钟内，85%的服务都没有检测到心跳的时候，eureka服务端就会认为是自己的问题，不会把客户端eureka的实例剔除，依然可以正常调用）
+    eviction-interval-timer-in-ms: 6000 #设置清理间隔，在自定义时间内没有检测到eureka客户端的心跳就将该实例剔除（单位：毫秒 默认是60*1000）
+  instance:
+    hostname: localhost # 配置当前服务的访问地址
+
+  client:  # 配置客户端
+    registerWithEureka: false #是否把自己作为一个客户端注册到自己身上 （默认为true，单机模式设置为false，因为没有必要）
+    fetchRegistry: false  #是否需要从服务端获取注册信息（默认为true，单机模式设置为false，因为没有必要）
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
