@@ -16,13 +16,13 @@ eureka:
     enable-self-preservation: true  #开启自我保护机制 （当在15分钟内，85%的服务都没有检测到心跳的时候，eureka服务端就会认为是自己的问题，不会把客户端eureka的实例剔除，依然可以正常调用）
     eviction-interval-timer-in-ms: 6000 #设置清理间隔，在自定义时间内没有检测到eureka客户端的心跳就将该实例剔除（单位：毫秒 默认是60*1000）
   instance:
-    hostname: localhost # 配置当前服务的访问地址
+    hostname: www.hiyihi.cn # 配置当前服务的访问地址
 
   client:  # 配置客户端
     registerWithEureka: true #是否把自己作为一个客户端注册到自己身上 （默认为 true，单机模式设置为false，因为没有必要）
     fetchRegistry: true  #是否需要从服务端获取注册信息（默认为 true，单机模式设置为false，因为没有必要）
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${eureka.instance.hostname}:2002/eureka,http://${eureka.instance.hostname}:2003/eureka
 
 
 
